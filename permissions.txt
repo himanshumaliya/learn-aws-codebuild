@@ -31,6 +31,19 @@ Permissions to access the lambda and other services by codeBuild
 		{
 			"Effect": "Allow",
 			"Action": [
+				"codebuild:CreateReportGroup",
+				"codebuild:CreateReport",
+				"codebuild:UpdateReport",
+				"codebuild:BatchPutTestCases",
+				"codebuild:BatchPutCodeCoverages"
+			],
+			"Resource": [
+				"arn:aws:codebuild:ap-south-1:141330804036:report-group/github-to-lambda-demo-*"
+			]
+		},
+		{
+			"Effect": "Allow",
+			"Action": [
 				"lambda:AddPermission",
 				"lambda:RemovePermission",
 				"lambda:CreateAlias",
@@ -46,15 +59,16 @@ Permissions to access the lambda and other services by codeBuild
 		},
 		{
 			"Effect": "Allow",
-			"Action": [
-				"codebuild:CreateReportGroup",
-				"codebuild:CreateReport",
-				"codebuild:UpdateReport",
-				"codebuild:BatchPutTestCases",
-				"codebuild:BatchPutCodeCoverages"
-			],
 			"Resource": [
-				"arn:aws:codebuild:ap-south-1:141330804036:report-group/github-to-lambda-demo-*"
+				"arn:aws:s3:::de-learing-bucket-himanshu/Lambda-code/lambda-builds-zip",
+				"arn:aws:s3:::de-learing-bucket-himanshu/Lambda-code/lambda-builds-zip/*"
+			],
+			"Action": [
+				"s3:PutObject",
+				"s3:GetObject",
+				"s3:GetObjectVersion",
+				"s3:GetBucketAcl",
+				"s3:GetBucketLocation"
 			]
 		}
 	]
