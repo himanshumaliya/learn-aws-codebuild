@@ -54,3 +54,8 @@ You didn't find any lambdafullaccess type permission in the add permissions sect
 "Resource": "arn of the resource for which the access/permission has been given" 
 Means if your are giving the permission for lambda then you need to mention the lambda arn if the permission is for cloudwatch then there should be cloudwatch resource arn.
 
+Now we need to set one more permission which regarding the S3 access in which we are going to give our S3 bucket for storing the package made during the process which will be use by lambda in case the package size is above 10 MB. 
+Eg. Suppose we have created a package for our dependencies of lambda which may lead to exceed the size of 10 MB which is the upload limit of lambda, So in that case we have to store the package in some of S3 location which can be accessed by lambda for its source code. 
+
+These permission is also available in the same file. 
+
